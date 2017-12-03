@@ -1,0 +1,6 @@
+# 服务注册中心 
+spring:
+  profiles:
+    active: dev
+  application:
+    name: service-registry

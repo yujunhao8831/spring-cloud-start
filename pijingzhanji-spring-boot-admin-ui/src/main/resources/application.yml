@@ -1,0 +1,56 @@
+# 发件箱
+send.mail: pjzj8831@163.com
+security:
+  user:
+    name: root
+    password: root
+  basic:
+    enabled: true
+
+# 服务器
+server:
+  port: 8888
+
+spring:
+  application:
+      name: pijingzhanji-spring-boot-admin-ui 
+  mail: 
+    port: 25
+    host: smtp.163.com
+    protocol: smtp
+    username: ${send.mail}
+    password: a1234567890
+    default-encoding: UTF-8
+    properties:
+      mail.smtp.auth: true 
+      mail.smtp.starttls: false 
+      mail.smtp.quitwait: false
+  boot:
+    admin:
+      username: "${security.user.name}"       
+      password: "${security.user.password}"    
+      client:
+        metadata:
+          user.name: "${security.user.name}"
+          user.password: "${security.user.password}"
+      notify:
+        mail:
+          to: yujunhao_8831@yahoo.com
+          subject: pijingzhanji
+          from: ${send.mail}
+      routes:
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+      turbine:
+        clusters: default
+        location: turbine
+eureka:  
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://root:root@127.0.0.1:10000/eureka/
+
+management.security.enabled: false
+

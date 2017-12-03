@@ -1,0 +1,34 @@
+# 服务注册中心 (多节点,集群)
+server:
+  port: 8092
+  
+security:
+  basic:
+    enabled: true # 开启基于Http basic认证
+  user:
+    name: root
+    password: root
+
+eureka:
+  server:
+    enable-self-preservation: false       # 关闭自我保护模式（缺省为打开）
+    eviction-interval-timer-in-ms: 10000   # 续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）
+  instance:
+    prefer-ip-address: true
+    ip-address: 192.168.74.113
+    instance-id: SERVICE-REGISTRY:8092
+    
+  client:
+    service-url: 
+      defaultZone: http://root:root@127.0.0.1:8091/eureka/
+
+# actuator 权限    
+management:
+  security:
+    enabled: false
+    
+# 日志
+logging:
+  config: classpath:log4j2.xml
+
+# java -jar xxx --spring.profiles.active=cluster-server-2

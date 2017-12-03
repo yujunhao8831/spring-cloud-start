@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>pijingzhanji-parent</artifactId>
+		<groupId>com.pijingzhanji</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pijingzhanji-parent</relativePath>
+	</parent>
+
+
+	<groupId>com.pijingzhanji</groupId>
+	<artifactId>pijingzhanji-eureka-server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<name>pijingzhanji-eureka-server</name>
+	<description>服务注册中心</description>
+
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka-server</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- 为Eureka Server添加用户认证 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- 日志 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lmax</groupId>
+			<artifactId>disruptor</artifactId>
+		</dependency>
+		<!-- 日志 -->
+
+		<!--<dependency>-->
+		<!--<groupId>de.codecentric</groupId>-->
+		<!--<artifactId>spring-boot-admin-starter-client</artifactId>-->
+		<!--</dependency>-->
+
+		<!--<dependency>-->
+		<!--<groupId>org.jolokia</groupId>-->
+		<!--<artifactId>jolokia-core</artifactId>-->
+		<!--</dependency>-->
+
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

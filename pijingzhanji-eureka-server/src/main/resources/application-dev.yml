@@ -1,0 +1,30 @@
+server:
+  port: 10000
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: false # 表示是否从Eureka Server获取注册信息,默认为true.因为这是一个单点的Eureka Server,不需要同步其他的Eureka Server节点的数据,这里设置为false 
+    register-with-eureka: false # 表示是否将自己注册到Eureka Server,默认为true.由于当前应用就是Eureka Server,故而设置为false.
+    service-url: 
+      # 设置与Eureka Server的地址,查询服务和注册服务都需要依赖这个地址.默认是http://localhost:8761/eureka/;多个地址可使用','风格.
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    
+security:
+  basic:
+    enabled: true # 开启基于Http basic认证
+  user:
+    name: root
+    password: root
+    
+    
+# actuator 权限    
+management:
+  security:
+    enabled: false
+    
+# 日志
+logging:
+  config: classpath:log4j2.xml
+    

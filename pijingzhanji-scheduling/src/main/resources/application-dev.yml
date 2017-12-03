@@ -1,0 +1,26 @@
+# 服务器
+server:
+  port: 8051
+
+# 日志
+logging:
+  config: classpath:log4j2-production.xml
+
+
+pijingzhanji:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 60
+    
+# -----—Spring Cloud-----—
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@127.0.0.1:10000/eureka/
+
+# http://www.itmuch.com/spring-cloud-feign-ribbon-first-request-fail/
+feign:
+  hystrix:
+    enabled: false
+

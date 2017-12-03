@@ -1,0 +1,41 @@
+spring:
+  # 多环境配置文件
+  profiles:
+    active: dev
+  application:
+    name: pijingzhanji-gateway-zuul
+    
+# spring boot admin 监控 start
+management:
+  security:
+    enabled: false
+# spring boot admin 监控 end
+
+
+# jwt 配置
+jwt:
+  # header中key,以改值为key在header中获取 request.getHeader('key')
+  header: Authorization
+
+
+# zuul 路由
+zuul:
+  routes: 
+    pijingzhanji-user-server: /user/**
+    pijingzhanji-order-server: /order/**
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+
+# 负载均衡设置
+ribbon:
+  okhttp:
+    enabled: true
+  ReadTimeout: 300000
+  ConnectTimeout: 300000
+
+

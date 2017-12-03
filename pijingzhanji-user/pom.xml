@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>pijingzhanji-parent</artifactId>
+		<groupId>com.pijingzhanji</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pijingzhanji-parent</relativePath>
+	</parent>
+	<packaging>pom</packaging>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>pijingzhanji-user</artifactId>
+
+	<modules>
+		<module>user-server</module>
+		<module>user-service</module>
+		<module>user-dao</module>
+		<module>user-bean</module>
+	</modules>
+
+</project>

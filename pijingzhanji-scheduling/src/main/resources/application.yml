@@ -1,0 +1,28 @@
+spring:
+  # 多环境配置文件
+  profiles:
+    active: dev
+  application:
+    name: pijingzhanji-scheduling
+  aop:
+    proxy-target-class: true
+    auto: true
+    
+# 自定义配置
+pijingzhanji:
+  feign-ok-http-config:
+    readTimeout: 600
+    connectTimeout: 600
+    writeTimeout: 1800
+    
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+
+# spring boot admin 监控 start
+management:
+  security:
+    enabled: false
+# spring boot admin 监控 end
